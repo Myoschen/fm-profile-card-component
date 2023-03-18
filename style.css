@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+:root {
+  /* colors */
+  --dark-cyan-hsl: 185, 75%, 39%;
+  --deep-dark-desaturated-blue-hsl: 229, 23%, 23%;
+  --dark-grayish-blue-hsl: 227, 10%, 46%;
+  --dark-gray-hsl: 0, 0%, 59%;
+  --white-hsl: 0, 0%, 100%;
+
+  --white: hsl(var(--white-hsl));
+  --dark-cyan: hsl(var(--dark-cyan-hsl));
+  --deep-dark-desaturated-blue: hsl(var(--deep-dark-desaturated-blue-hsl));
+  --dark-grayish-blue: hsl(var(--dark-grayish-blue-hsl));
+  --dark-gray: hsl(var(--dark-gray-hsl));
+
+  /* typography */
+  --fz-xs: 0.75rem;
+  --fz-sm: 1rem;
+  --fz-base: 1.125rem;
+
+  --fw-base: 400;
+  --fw-bold: 700;
+
+  --ff-kumbh-sans: 'Kumbh Sans', sans-serif;
+
+  --rounded-sm: 1rem;
+  --rounded: 50%;
+
+  --shadow: 0px 1.7px 2.2px rgba(0, 0, 0, 0.02),
+    0px 4px 5.3px rgba(0, 0, 0, 0.028), 0px 7.5px 10px rgba(0, 0, 0, 0.035),
+    0px 13.4px 17.9px rgba(0, 0, 0, 0.042),
+    0px 25.1px 33.4px rgba(0, 0, 0, 0.05), 0px 60px 80px rgba(0, 0, 0, 0.07);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--ff-kumbh-sans);
+  font-size: var(--fz-base);
+  font-weight: var(--fw-base);
+}
+
+img {
+  width: 100%;
+}
+
+body {
+  background-image: url(./images/bg-pattern-top.svg),
+    url(./images/bg-pattern-bottom.svg);
+  background-color: var(--dark-cyan);
+  background-repeat: no-repeat;
+  background-position: bottom 45vh right 50vw, top 45vh left 45vw;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 70px);
+  padding-inline: 1rem;
+}
+
+.card {
+  background: var(--white);
+  overflow: hidden;
+  border-radius: var(--rounded-sm);
+  box-shadow: var(--shadow);
+}
+
+.avatar {
+  position: relative;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  margin-inline: auto;
+  border: 6px solid var(--white);
+  border-radius: var(--rounded);
+}
+
+.avatar::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 110%;
+  height: 110%;
+  background: var(--white);
+  border-radius: var(--rounded);
+  transform: translate(-50%, -50%);
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-block: 30px;
+}
+
+.info__name {
+  font-weight: var(--fw-bold);
+  color: var(--deep-dark-desaturated-blue);
+}
+
+.info__age {
+  font-weight: var(--fw-base);
+  color: var(--dark-grayish-blue);
+}
+
+.info__city {
+  text-align: center;
+  width: 100%;
+  font-size: var(--fz-sm);
+  font-weight: var(--fw-base);
+  color: var(--dark-gray);
+}
+
+.activity {
+  display: flex;
+  justify-content: space-around;
+  padding: 1.5rem;
+  border-top: 1px solid hsla(var(--dark-gray-hsl), 0.25);
+}
+
+.activity__item > h3 {
+  font-weight: var(--fw-bold);
+  color: var(--deep-dark-desaturated-blue);
+}
+
+.activity__item > span {
+  font-size: var(--fz-xs);
+  color: var(--dark-gray);
+  letter-spacing: 1px;
+}
+
+.attribution {
+  color: var(--white);
+  padding-block: 24px;
+  font-size: var(--fz-xs);
+  text-align: center;
+}
+
+.attribution a {
+  color: inherit;
+  font-size: inherit;
+  transition: 0.3s ease;
+}
+
+.attribution a:hover {
+  color: var(--deep-dark-desaturated-blue);
+}
+
+@media only screen and (min-width: 36rem) {
+  .card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
